@@ -46,8 +46,12 @@ public class ToDoImp implements ToDoDao{
         }
 
         toDo.setDone(value);
+    }
 
-        System.out.println(toDo.toString());
+    @Override
+    public void editToDo(int id, String task) {
+        ToDo toDo = entityManager.find(ToDo.class, id);
+        toDo.setTask(task);
     }
 
 }

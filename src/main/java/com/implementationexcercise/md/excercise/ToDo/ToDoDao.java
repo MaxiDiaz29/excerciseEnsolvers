@@ -12,4 +12,5 @@ public interface ToDoDao {
 
     void doneToDo(int id);
 
+    void editToDo(int id, String task);
 }

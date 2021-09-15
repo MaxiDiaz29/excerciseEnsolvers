@@ -9,7 +9,7 @@ import java.util.List;
 public class ToDoController {
     @Autowired
     private ToDoDao toDoDao;
-    
+
     @RequestMapping(value = "api/tasks")
     public List<ToDo> getTodos(){
         List<ToDo> todolist = new ArrayList<>();
@@ -32,4 +32,7 @@ public class ToDoController {
     public void doneToDo(@PathVariable int id){
         toDoDao.doneToDo(id);
     }
+
+    @RequestMapping(value = "api/tasks/edit/{id}/{task}", method = RequestMethod.POST)
+    public void editToDo(@PathVariable int id,@PathVariable String task){toDoDao.editToDo(id, task);}
 }
